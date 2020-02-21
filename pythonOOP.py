@@ -1,7 +1,8 @@
 #Python Object-Oriented Programming
 
 class Employee:
-    raise_amount = 1.04
+    num_of_emps = 0
+    raise_amount = 1.04 #base raise
 
     #Constructor
     def __init__(self, first, last, pay):
@@ -9,6 +10,8 @@ class Employee:
         self.last = last
         self.pay = pay
         self.email = first + '.' + last + '@company.com'
+
+        Employee.num_of_emps += 1
     
     def fullName(self):
         return '{} {}'.format(self.first, self.last)
@@ -17,7 +20,9 @@ class Employee:
         self.pay = int(self.pay * self.raise_amount)
 
 emp_1 = Employee('Joe','Brown',6000)
+print(Employee.num_of_emps)
 emp_2 = Employee('Steve','North',4500)
+print(Employee.num_of_emps)
 
 print(emp_1.pay)
 emp_1.apply_raise()
